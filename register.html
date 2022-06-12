@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<style type="text/css">
+    #form-tag{
+       
+        top:50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%, 0);
+  position: absolute;
+}
+
+ 
+
+    #data{
+        margin: 10px;
+        padding: 10px;
+    }
+
+</style>
+<body>
+    <div id="form-tag" >
+        <form method="post" action="/register">
+            <div id="data">
+                <label for="">name</label>     
+               <input type="text" name="username">
+            </div>
+            <div  id="data">
+                <label for="">age</label>
+                 <input type="text" name="age">
+            </div>
+           <div  id="data">
+            <label for="">weight</label>
+            <input type="text" name="weight">
+           </div>
+           <div  id="data">
+            <label for="">gender</label>
+            <select name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+
+            </select>
+           </div>
+           <div  id="data">
+            <label for="">package</label>
+             <select name="package" id="package">
+                <option value="Basic">Basic</option>
+                <option value="Standard">Standard</option>
+                <option value="Premium">Premium</option>
+             </select>
+           </div>
+           <div  id="data">
+            <label for="">email</label>
+            <input type="email" name="email">
+           </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+</div>
+</body>
+</html>
