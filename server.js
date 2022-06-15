@@ -115,6 +115,6 @@ app.post("/submitPrice",async function(req,res){
 
 })
 
-app.listen(5500,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log("listening");
 })
