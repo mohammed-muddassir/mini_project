@@ -33,10 +33,10 @@ app.use(sessions({
 }));
 app.use(cookieParser());
 app.set('view-engine','ejs');
-app.use(express.static(__dirname + '\\views'));
+app.use(express.static(__dirname + '/views'));
 app.use(express.json());
 
-app.set('views', __dirname + '\\views'); 
+app.set('views', __dirname + '/views'); 
 
 app.post("/login",(req,res)=>{
     const username=String(req.body.user);
