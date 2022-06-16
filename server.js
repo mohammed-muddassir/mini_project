@@ -84,7 +84,7 @@ app.get('/login',(req,res)=>{
 
 
 app.get('/register',(req,res)=>{
-    res.sendFile(__dirname+"\\register.html");
+    res.sendFile(__dirname+"/register.html");
 })
 
 app.post('/register',async function(req,res){
