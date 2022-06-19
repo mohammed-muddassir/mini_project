@@ -15,6 +15,7 @@ const { mailTransport } = require('./mail/transport');
 const { sendAdminMail } = require('./mail/adminMail');
 const { main} = require('./mongoDB/mongoConnect');
 const { client } = require('./mongoDB/credentials');
+const { priceMail } = require('./mail/priceMail');
 
 var session;
 
@@ -90,6 +91,7 @@ app.get('/register',(req,res)=>{
 app.post('/register',async function(req,res){
     const details=req.body;
     const email=String(req.body.email);
+    await client.db("prices").collection("users").insertOne(details);
     if(email!==undefined){
        await sendUserMail(details,mailTransport);
         await sendAdminMail(details,mailTransport);
@@ -102,8 +104,9 @@ app.post('/register',async function(req,res){
 
 app.post("/submitPrice",async function(req,res){
     const base=req.body.basic;
-    const standard=req.body.standard  ;
+    const standard=req.body.standard;
     const premium=req.body.premium;
+    await priceMail(req.body,mailTransport);
     var query={$set:{basic:base,standard:standard,premium:premium}};
     await client.db("prices").collection("gym_prices").updateOne({},query,function(err, res) {
         if (err) throw err;
