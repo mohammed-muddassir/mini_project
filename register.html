@@ -7,24 +7,77 @@
     <title>Document</title>
 </head> 
 <style type="text/css">
-    #form-tag{
-       
-        top:50%;
-  left: 50%;
-  transform: translate3d(-50%,-50%, 0);
-  position: absolute;
-}
+    body{
+        background-color: #111;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: #bca0dc;
+        
 
+    }
+    label{
+        text-transform: capitalize;
+        padding: 10px;
+    }
+    #form-tag{    
+        /* top:50%;
+        left: 50%;
+        transform: translate3d(-50%,-50%, 0);
+        position: absolute; */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /* background-repeat: no-repeat;
+        height: 100%;
+        object-fit: cover;
+        background-position:center;
+         */
+        
+        
+    }
+    input,select,option{
+        padding: 20px;
+        color: #fff;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 8px;
+       
+    }
+    input:focus{
+        border: 2px solid white;
+        border-radius: 8px;
+        outline: none;
+    }
+    #left{
+        flex:1;
+        opacity: 1;
+    }
+    #right{
+        flex:1;
+    }
  
 
     #data{
         margin: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+  
+    #illust{
+       width:100%;height:100%;
+    }
+    .btn{
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
         padding: 10px;
     }
 
 </style>
 <body>
     <div id="form-tag" >
+        <div id="left">
         <form method="post" action="/register">
             <div id="data">
                 <label for="">name</label>     
@@ -61,6 +114,11 @@
            </div>
             <button type="submit" class="btn">Submit</button>
         </form>
+    </div>
+    <div id="right">
+        <img  id="illust" src="https://img.freepik.com/free-vector/gradient-home-gym-illustrated_23-2148813993.jpg?w=2000">
+
+    </div>
 </div>
 </body>
 </html>
