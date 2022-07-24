@@ -311,9 +311,9 @@ transition: .5s;
 {
 background-color: #e11;
 }
-#about
+#trainer
 {width: 100%;background: #222;/* margin-bottom: 10px; */}
-#about #cont
+#trainer #cont
 {width: 1200px;
 margin:auto;display: flex;padding-top: 50px;/* align-items: center; *//* justify-content: center; */}
 #cont img
@@ -349,7 +349,7 @@ padding-top: 30px;
     
     width: 100%;
     background-color: #111;
-    margin-top: 10px;
+    
 }
 .footer
 {
