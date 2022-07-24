@@ -9,7 +9,7 @@
 <style type="text/css">
     body{
         background-color: #111;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
         color: #bca0dc;
         
 
@@ -35,7 +35,7 @@
         
         
     }
-    input,select,option{
+    input,select,option,textarea{
         padding: 20px;
         color: #fff;
         background-color: transparent;
@@ -63,6 +63,16 @@
         display: flex;
         flex-direction: column;
     }
+    #select{
+         margin: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+   select{
+       
+        background-color: #111;
+    }
   
     #illust{
        width:100%;height:100%;
@@ -72,13 +82,18 @@
         display: flex;
         align-items: center;
         padding: 10px;
+        border-radius:10px;
+        background:red;
+        cursor:pointer;
+        color:#fff;
+        border:none;
     }
 
 </style>
-<body>
+<body >
     <div id="form-tag" >
         <div id="left">
-        <form method="post" action="/register">
+        <form method="post" action="/register" id="register" >
             <div id="data">
                 <label for="">name</label>     
                <input type="text" name="username">
@@ -91,7 +106,7 @@
             <label for="">weight</label>
             <input type="text" name="weight">
            </div>
-           <div  id="data">
+           <div  id="select">
             <label for="">gender</label>
             <select name="gender">
                 <option value="Male">Male</option>
@@ -100,7 +115,7 @@
 
             </select>
            </div>
-           <div  id="data">
+           <div  id="select">
             <label for="">package</label>
              <select name="package" id="package">
                 <option value="Basic">Basic</option>
@@ -112,13 +127,65 @@
             <label for="">email</label>
             <input type="email" name="email">
            </div>
-            <button type="submit" class="btn">Submit</button>
+           <div id="data">
+            <label for="">Phone No</label>
+            <input type="text" name="phoneno" required="true">
+           </div>
+           <div id="data">
+            <label>
+                From
+            </label>
+            <input type="time" id="from">
+            <label for="">To</label>
+            <input type="time" id="to">
+           </div>
+            <div id="select">
+                <label for="">Reason</label>
+             <select name="reason" id="reason">
+                <option value="Weight Gain">Weight Gain</option>
+                <option value="Weight Loss">Weight Loss</option>
+                <option value="Other">Other</option>
+             </select>
+                <label>If other,please mention the reason below</label>
+                <textarea type="text" id="reason"></textarea>
+           </div>
+            <button type="submit" class="btn" >Submit</button>
         </form>
     </div>
     <div id="right">
         <img  id="illust" src="https://img.freepik.com/free-vector/gradient-home-gym-illustrated_23-2148813993.jpg?w=2000">
 
     </div>
+    <script type="text/javascript">
+         const email=form.elements["email"];
+          function validateEmail(email){
+             const val=email.value.trim();
+             const emailRegex =
+		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                 if(emailRegex.test(val)){
+                    return true;
+                 }
+                 return false;
+          }
+            const form=document.getElementById("register");
+            form.addEventListener("submit",function(event){
+                event.preventDefault();
+                if(validateEmail(email)){
+                    form.submit();
+
+                }
+                else{
+                    alert(" Enter the details correctly...");
+                    console("emailwrong")
+                }
+            })
+            const phone=form.elements["phoneno"];
+            
+            // validatePhone(phone);
+            // validateEmail(email);
+         
+
+    </script>
 </div>
 </body>
 </html>
