@@ -2,11 +2,12 @@ if(process.env.NODE_ENV!=='production'){
     require('dotenv').config()
  }
 async function sendUserMail(details,mailTransport){
+    const message=`Good day ${details.username} \n You had booked ${details.package}.\n Here are the filled details: \n EMAIL : ${details.email} \n PHONE No: ${String(details.phoneno)} \n Reason : ${details.reason} \n Timing : From ${String(details.from)} To ${String(details.to)} \n We expect you at the earliest!!`;
     let mailDetails={
         from:process.env.ADMIN_MAIL,
         to:String(details.email),
         subject:'Booked successfully',
-        text:`Hey ${details.username} \n You just booked a package- ${details.package}`
+        text:message,
         //age
         //weight
         //gender- details.gender
